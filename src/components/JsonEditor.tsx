@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { json } from '@codemirror/lang-json';
 import { javascript } from '@codemirror/lang-javascript';
-import { vscodeDark } from '@uiw/react-codemirror/themes/vscode';
+import { oneDark } from '@codemirror/theme-one-dark';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -76,7 +76,7 @@ const Editor: React.FC<EditorProps> = ({
         <CodeMirror
           value={value}
           height="100%"
-          theme={vscodeDark}
+          theme={oneDark}
           extensions={extensions}
           onChange={onChange}
           readOnly={readOnly}
