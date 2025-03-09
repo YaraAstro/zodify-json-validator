@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter var', 'Inter', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -70,25 +75,54 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'fade-in': {
+					from: { opacity: '0' },
+					to: { opacity: '1' }
+				},
+				'fade-out': {
+					from: { opacity: '1' },
+					to: { opacity: '0' }
+				},
+				'slide-in': {
+					from: { transform: 'translateY(10px)', opacity: '0' },
+					to: { transform: 'translateY(0)', opacity: '1' }
+				},
+				'scale-in': {
+					from: { transform: 'scale(0.98)', opacity: '0' },
+					to: { transform: 'scale(1)', opacity: '1' }
+				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'fade-out': 'fade-out 0.3s ease-out',
+				'slide-in': 'slide-in 0.3s ease-out',
+				'scale-in': 'scale-in 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite'
+			},
+			transitionTimingFunction: {
+				'spring': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				'bounce': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+			},
+			boxShadow: {
+				'subtle': '0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1)',
+				'elevation': '0 4px 12px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1)',
+				'glass': '0 8px 32px rgba(0, 0, 0, 0.08)',
+			},
+			backdropBlur: {
+				'xs': '2px',
 			}
 		}
 	},
