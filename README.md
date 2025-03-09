@@ -1,69 +1,101 @@
-# Welcome to your Lovable project
+# Zodify JSON Validator
 
-## Project info
+**Zodify JSON Validator** is a web application that lets you validate JSON data using Zod schemas—all through an intuitive browser interface. No installation is required.
 
-**URL**: https://lovable.dev/projects/73fd1cc5-d935-43e9-b6df-50501546d6d7
+---
 
-## How can I edit this code?
+## Detailed Breakdown
 
-There are several ways of editing your application.
+### 1. Overview
 
-**Use Lovable**
+**Purpose & Scope:**  
+Zodify JSON Validator is built to help you verify that your JSON data conforms to a predefined schema using [Zod](https://github.com/colinhacks/zod). Whether you're a developer testing API responses or debugging your JSON configuration, this tool provides immediate, actionable feedback.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/73fd1cc5-d935-43e9-b6df-50501546d6d7) and start prompting.
+**Key Features:**
+- **Real-Time Validation:** As you update your JSON input or schema, the app validates in real time.
+- **Clear Error Reporting:** Detailed error messages pinpoint exactly which part of the JSON does not meet the schema requirements.
+- **Responsive Design:** The interface adapts to various screen sizes to ensure an optimal experience on mobile, tablet, and desktop devices.
+- **No Installation Needed:** Simply open your browser and start validating your JSON data.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+### 2. How to Use
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Access the App:**  
+   Visit [https://zodify-json-validator.vercel.app](https://zodify-json-validator.vercel.app) using any modern web browser.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. **Input Your JSON:**  
+   Paste or type your JSON data into the provided text area.
 
-Follow these steps:
+3. **Define or Select a Schema:**  
+   - You can write your own Zod schema using the integrated schema editor.
+   - Alternatively, choose from pre-defined schemas available on the site.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. **View Real-Time Validation:**  
+   - The app continuously checks your JSON against the schema.
+   - If your JSON passes validation, a success message is displayed.
+   - If there are errors, detailed feedback explains which fields or types need attention.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 3. Interface & Responsive Breakpoints
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+The web app is designed with a responsive interface that adapts to your device:
 
-**Edit a file directly in GitHub**
+- **Mobile (up to 600px):**  
+  The layout stacks vertically so that the JSON input, schema editor, and validation results are shown in a single column for easy reading and interaction.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Tablet (600px to 900px):**  
+  The interface adjusts to display two columns. For example, the JSON input and schema editor might be side-by-side with the validation results displayed below.
 
-**Use GitHub Codespaces**
+- **Desktop (above 900px):**  
+  A multi-pane layout is used where you can see:
+  - The JSON input on the left,
+  - The schema editor in the middle,
+  - The live validation output on the right.
+  
+This design ensures that regardless of your device, you get a seamless and productive validation experience.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+### 4. In-Depth Features
 
-This project is built with .
+#### Real-Time Feedback
+- **Automatic Validation:** Every change you make to the JSON or the schema triggers an immediate check.
+- **Detailed Error Messages:** The app highlights mismatches and explains issues such as type errors, missing required fields, or incorrect formatting.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+#### Schema Editor
+- **Syntax Highlighting:** The editor assists you by highlighting Zod syntax.
+- **Code Suggestions:** Helpful tips and suggestions are provided as you write your schema, making it easier to define complex validations.
 
-## How can I deploy this project?
+#### Responsive Layout
+- **Adaptive Design:** The user interface rearranges itself to suit the device’s screen size—ensuring you have an optimal view whether on mobile, tablet, or desktop.
+- **User-Friendly Navigation:** Clearly labeled sections allow you to quickly switch between input, schema, and results without any clutter.
 
-Simply open [Lovable](https://lovable.dev/projects/73fd1cc5-d935-43e9-b6df-50501546d6d7) and click on Share -> Publish.
+---
 
-## I want to use a custom domain - is that possible?
+### 5. API Reference
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+While **Zodify JSON Validator** is primarily a web app, an interactive [API Documentation](https://zodify-json-validator.vercel.app/docs/api) section is available for those interested in integrating similar validation functionalities into their own projects.
+
+---
+
+### 6. Contributing & Feedback
+
+We value your contributions and feedback! If you have ideas for improvement, bug reports, or feature requests:
+- Check out our [Contributing Guidelines](https://zodify-json-validator.vercel.app/contributing).
+- Report issues or suggest enhancements on our GitHub repository.
+
+---
+
+### 7. License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+*This App is Created by [Loveable Ai](https://lovable.dev/projects/73fd1cc5-d935-43e9-b6df-50501546d6d7)*
+
+![Loveable Ai Logo](./public/og-image.png?width=500)
+
+<!-- *Documentation generated based on content from [zodify-json-validator.vercel.app/docs](https://zodify-json-validator.vercel.app/docs).* -->

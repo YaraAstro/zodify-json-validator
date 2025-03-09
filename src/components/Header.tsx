@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             Docs
           </Link>
           <a 
-            href="https://github.com/colinhacks/zod" 
+            href="https://github.com/YaraAstro/zodify-json-validator" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
