@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { json } from '@codemirror/lang-json';
 import { javascript } from '@codemirror/lang-javascript';
-import { vscodeDark } from '@uiw/codemirror-theme-vscode';
+import { vscodeDark } from '@uiw/react-codemirror/themes/vscode';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
