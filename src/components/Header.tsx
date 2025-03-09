@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   className?: string;
@@ -18,9 +20,9 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-primary/10 backdrop-blur-xs"></div>
             <div className="relative z-10 font-semibold text-primary text-lg">z</div>
           </div>
-          <h1 className="text-xl font-medium tracking-tight">
+          <Link to="/" className="text-xl font-medium tracking-tight">
             <span className="text-primary font-semibold">Zod</span>ify
-          </h1>
+          </Link>
         </div>
         
         <nav className="hidden md:flex gap-6 text-sm">
@@ -32,17 +34,19 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
           >
             Zod Docs
           </a>
-          <a 
-            href="#" 
+          <Link 
+            to="/docs" 
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Examples
-          </a>
+            Docs
+          </Link>
           <a 
-            href="#" 
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            href="https://github.com/colinhacks/zod" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
           >
-            About
+            <Github size={16} /> GitHub
           </a>
         </nav>
       </div>
