@@ -7,6 +7,9 @@ import SchemaPreview from '@/components/SchemaPreview';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { generateZodSchema, formatJson } from '@/utils/zodGenerator';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
+import { Link } from 'react-router-dom';
 
 const sampleJson = `{
   "id": 1,
@@ -35,6 +38,8 @@ const Index = () => {
   const [schema, setSchema] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [addNullable, setAddNullable] = useState(false);
+  const [customErrorMessages, setCustomErrorMessages] = useState(false);
 
   // Load sample JSON when component mounts
   useEffect(() => {
@@ -67,7 +72,10 @@ const Index = () => {
       
       // Generate schema with a slight delay to show animation
       setTimeout(() => {
-        const result = generateZodSchema(jsonInput);
+        const result = generateZodSchema(jsonInput, {
+          addNullable,
+          customErrorMessages
+        });
         
         if (result.error) {
           setError(result.error);
@@ -110,6 +118,13 @@ const Index = () => {
           <p className="text-xl text-muted-foreground">
             Generate type-safe validation schemas with a single click
           </p>
+          <div className="flex justify-center gap-2">
+            <Link to="/docs">
+              <Button variant="outline">
+                View Documentation
+              </Button>
+            </Link>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -143,25 +158,47 @@ const Index = () => {
               className="h-[70vh] md:h-[65vh]"
             />
             
-            <Button
-              onClick={handleGenerateSchema}
-              size="lg"
-              disabled={isGenerating}
-              className="relative overflow-hidden group"
-            >
-              <span className={`flex items-center gap-2 transition-all duration-300 ${isGenerating ? 'opacity-0' : 'opacity-100'}`}>
-                Generate Zod Schema
-              </span>
-              {isGenerating && (
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-8">
+                <div className="flex items-center space-x-2">
+                  <Switch 
+                    id="nullable-mode" 
+                    checked={addNullable} 
+                    onCheckedChange={setAddNullable}
+                  />
+                  <Label htmlFor="nullable-mode">Generate nullable fields</Label>
+                </div>
+              
+                <div className="flex items-center space-x-2">
+                  <Switch 
+                    id="custom-errors" 
+                    checked={customErrorMessages} 
+                    onCheckedChange={setCustomErrorMessages}
+                  />
+                  <Label htmlFor="custom-errors">Add custom error messages</Label>
+                </div>
+              </div>
+              
+              <Button
+                onClick={handleGenerateSchema}
+                size="lg"
+                disabled={isGenerating}
+                className="relative overflow-hidden group"
+              >
+                <span className={`flex items-center gap-2 transition-all duration-300 ${isGenerating ? 'opacity-0' : 'opacity-100'}`}>
+                  Generate Zod Schema
                 </span>
-              )}
-              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary-foreground/20 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-            </Button>
+                {isGenerating && (
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  </span>
+                )}
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary-foreground/20 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </Button>
+            </div>
           </div>
           
           <SchemaPreview
